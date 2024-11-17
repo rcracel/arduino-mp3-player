@@ -1,0 +1,27 @@
+{
+  "name": "MP3Player",
+  "version": "0.1.0",
+  "description": "An arduino compatible library to interact with the DFPlayer MP3 module",
+  "keywords": "MP3, SFX, Music",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/username/hello-world.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Roger Cracel",
+      "email": "roger.cracel@gmail.com",
+      "url": "https://www.rogercracel.com/",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://www.helloworld.org/",
+  "dependencies": {
+    "ivanseidel/LinkedList": "*"
+  },
+  "frameworks": "*",
+  "platforms": "*"
+}

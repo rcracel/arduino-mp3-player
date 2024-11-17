@@ -1,0 +1,4 @@
+.pio
+examples/*/build/*
+*.bak
+*.orig

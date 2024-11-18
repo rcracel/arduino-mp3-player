@@ -10,7 +10,7 @@ MP3::MP3() {
     this->lastSend = 0;
     this->timeout = 1000;
     this->stream = nullptr;
-    this->feedbackEnabled = false;
+    this->feedbackEnabled = true;
     this->callback = nullptr;
 }
 
@@ -92,6 +92,9 @@ void MP3::loop() {
 
         this->stream->write(command.bytes, COMMAND_PAYLOAD_SIZE);
         this->lastSend = millis();
+
+        //- When feedback is enabled, we will wait for a RESPONSE_ACK before sending the next message
+        if (this->feedbackEnabled) { this->ready = false; }
     }
 }
 

@@ -74,6 +74,15 @@ void printCommand(const Payload &command) {
             }
             SerialOut.print(")");
             break;
+        case RESPONSE_ACK:
+            SerialOut.println(" (ACKNOWLEDGE)");
+        break;
+        case RESPONSE_ERROR:
+            SerialOut.print("(ERROR ");
+            SerialOut.print(command.DATA_HI, HEX);
+            SerialOut.print(" / ");
+            SerialOut.print(command.DATA_LO, HEX);
+            SerialOut.println(")");
         default:
             SerialOut.print("(UNKNOWN)");
             break;

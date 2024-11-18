@@ -33,7 +33,7 @@ private:
   Payload received{};
   uint8_t offset;
 
-  messageReceivedCallback callback;
+  messageReceivedCallback callback{};
 
   void processInboundMessage(const Payload &payload);
 

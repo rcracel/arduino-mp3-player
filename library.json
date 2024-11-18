@@ -18,7 +18,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "ivanseidel/LinkedList": "*"
+    "ivanseidel/LinkedList": ""
   },
   "frameworks": "*",
   "platforms": "*"

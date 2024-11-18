@@ -4,7 +4,7 @@
 
 #include "mp3_utils.h"
 
-void printCommand(Payload &command) {
+void printCommand(const Payload &command) {
     const uint8_t *values = command.bytes;
 
     uint16_t eq;

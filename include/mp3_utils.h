@@ -30,7 +30,7 @@ typedef union {
     };
 } Payload;
 
-void printCommand(Payload &command);
+void printCommand(const Payload &command);
 bool validateMessage(const Payload &payload);
 void calculateChecksum(Payload &payload);
 

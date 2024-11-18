@@ -11,6 +11,7 @@ MP3::MP3() {
     this->timeout = 1000;
     this->stream = nullptr;
     this->feedbackEnabled = false;
+    this->callback = nullptr;
 }
 
 uint8_t MP3::begin(Stream *stream, bool waitUntilInitialized, uint32_t timeout) {
@@ -107,7 +108,15 @@ void MP3::processInboundMessage(const Payload &payload) {
             this->initialized = true;
         }
 
-        this->callback(payload.CMD, VAL(payload.DATA_HI, payload.DATA_LO));
+#ifdef MP3_DEBUG
+        SerialOut.print("Received Message: ");
+        printCommand(payload);
+        SerialOut.println();
+#endif
+
+        if (this->callback != nullptr) {
+            this->callback(payload.CMD, VAL(payload.DATA_HI, payload.DATA_LO));
+        }
     }
 }
 

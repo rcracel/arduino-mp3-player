@@ -4,7 +4,6 @@
 #define MP3_CONTROLLER_H
 
 #include <LinkedList.h>
-#include <Stream.h>
 
 #include "mp3_utils.h"
 
@@ -22,7 +21,7 @@ private:
   Stream *stream;
 
   LinkedList<Payload> cmdQueue = LinkedList<Payload>();
-  uint32_t _timeout;
+  uint32_t timeout;
 
   uint32_t lastSend;
   uint32_t lastReceive;
@@ -36,7 +35,7 @@ private:
 
   messageReceivedCallback callback;
 
-  void processInboundMessage(Payload &payload);
+  void processInboundMessage(const Payload &payload);
 
 protected:
   void queueCommand(uint8_t cmd, uint8_t hdata = 0x00, uint8_t ldata = 0x00);

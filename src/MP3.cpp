@@ -8,14 +8,14 @@ MP3::MP3() {
     this->ready = true;
     this->lastReceive = 0;
     this->lastSend = 0;
-    this->_timeout = 1000;
+    this->timeout = 1000;
     this->stream = nullptr;
     this->feedbackEnabled = false;
 }
 
 uint8_t MP3::begin(Stream *stream, bool waitUntilInitialized, uint32_t timeout) {
     this->stream = stream;
-    this->_timeout = timeout;
+    this->timeout = timeout;
 
     this->reset();
 
@@ -29,7 +29,7 @@ uint8_t MP3::begin(Stream *stream, bool waitUntilInitialized, uint32_t timeout) 
 
             delay(0); //- watchdog friendly
 
-            if (millis() - start > this->_timeout)
+            if (millis() - start > this->timeout)
                 return MP3_ERROR_TIMEOUT;
         }
 
@@ -94,7 +94,7 @@ void MP3::loop() {
     }
 }
 
-void MP3::processInboundMessage(Payload &payload) {
+void MP3::processInboundMessage(const Payload &payload) {
     const bool validMessage = validateMessage(payload);
 
     if (validMessage) {
@@ -106,6 +106,8 @@ void MP3::processInboundMessage(Payload &payload) {
             this->ready = true;
             this->initialized = true;
         }
+
+        this->callback(payload.CMD, VAL(payload.DATA_HI, payload.DATA_LO));
     }
 }
 

@@ -13,12 +13,10 @@
     {
       "name": "Roger Cracel",
       "email": "roger.cracel@gmail.com",
-      "url": "https://www.rogercracel.com/",
       "maintainer": true
     }
   ],
   "license": "MIT",
-  "homepage": "https://www.helloworld.org/",
   "dependencies": {
     "ivanseidel/LinkedList": "*"
   },

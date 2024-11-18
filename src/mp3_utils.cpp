@@ -80,7 +80,7 @@ void printCommand(Payload &command) {
     }
     SerialOut.println();
 }
-bool validateMessage(Payload &payload) {
+bool validateMessage(const Payload &payload) {
 
     if (payload.HEAD != CMD_PREFIX) {
 #ifdef MP3_DEBUG

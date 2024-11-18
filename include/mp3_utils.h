@@ -12,7 +12,7 @@
 #define SerialOut Serial
 #endif
 
-typedef void (*messageReceivedCallback)(const uint8_t*, size_t);
+typedef void (*messageReceivedCallback)(uint8_t, uint32_t);
 
 typedef union {
     uint8_t bytes[COMMAND_PAYLOAD_SIZE];
@@ -31,7 +31,7 @@ typedef union {
 } Payload;
 
 void printCommand(Payload &command);
-bool validateMessage(Payload &payload);
+bool validateMessage(const Payload &payload);
 void calculateChecksum(Payload &payload);
 
 #endif //MP3_UTILS_H

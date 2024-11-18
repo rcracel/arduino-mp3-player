@@ -1,5 +1,8 @@
 # MP3 Arduino Library
 
+[![PlatformIO Registry](https://badges.registry.platformio.org/packages/rcracel/library/MP3Player.svg)](https://registry.platformio.org/libraries/rcracel/MP3Player)
+
+***PLEASE NOTE THAT THIS LIBRARY IS WORK IN PROGRESS***
 
 ## History
 

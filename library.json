@@ -17,9 +17,13 @@
     }
   ],
   "license": "MIT",
-  "dependencies": {
-    "ivanseidel/LinkedList": ""
-  },
+  "dependencies": [
+    {
+      "owner": "ivanseidel",
+      "name": "LinkedList",
+      "version": "0.0.0-alpha+sha.dac3874d28"
+    }
+  ],
   "frameworks": "*",
   "platforms": "*"
 }

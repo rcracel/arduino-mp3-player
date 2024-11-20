@@ -20,7 +20,7 @@
 #define ON                     1
 #define OFF                    0
 
-#define LO(v)                  v & 0xFF
+#define LO(v)                  (v & 0xFF)
 #define HI(v)                  ((v >> 8) & 0xFF)
 #define VAL(h, l)              ((h << 8) | l)
 
@@ -62,10 +62,11 @@
 #define EQ_JAZZ                 5
 
 /* MP3 PLAYER COMMANDS */
-#define RESPONSE_ACK         0x41 // This is really just extra noise
-#define RESPONSE_ERROR       0x40
-#define RESPONSE_DEVICE_IN   0x3A // Byte 7 = (1) UDisk, (2) TF/CARD, (3) PC
-#define RESPONSE_DEVICE_OUT  0x3B // Byte 7 = (1) UDisk, (2) TF/CARD, (3) PC
-#define RESPONSE_ONLINE      0x3F // System is online
+#define RESPONSE_ACK             0x41 // This is really just extra noise
+#define RESPONSE_ERROR           0x40
+#define RESPONSE_DEVICE_IN       0x3A // Byte 7 = (1) UDisk, (2) TF/CARD, (3) PC
+#define RESPONSE_DEVICE_OUT      0x3B // Byte 7 = (1) UDisk, (2) TF/CARD, (3) PC
+#define RESPONSE_ONLINE          0x3F // System is online
+#define RESPONSE_PLAYBACK_DONE   0x3D // Byte 7 & 8 - track number
 
 #endif

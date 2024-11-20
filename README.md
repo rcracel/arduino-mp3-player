@@ -42,6 +42,8 @@ void setup() {
 
     while (!Serial) { delay(0); }
     
+    mp3Serial.begin();
+    
     mp3.begin(&mp3Serial, 0, true);
 }
 ```
@@ -172,3 +174,10 @@ class MP3 {
 ### void next();
 ### void prev();
 ### void volume(uint8_t vol);
+
+## Other Resources
+
+- For more details on MP3 players, check out this video from [Payful Technology](https://www.youtube.com/watch?v=8obcTTYtjQM) on the different MP3 player modules and how to wire them with detailed schematics and good explanation for anyone who considers themselves a beginner in the art of electronics. 
+
+
+

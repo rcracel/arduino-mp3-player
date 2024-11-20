@@ -14,6 +14,24 @@ MP3::MP3() {
     this->callback = nullptr;
 }
 
+/**
+ * Initializes the MP3 module and waits for acknowledgement that it is online.
+ *
+ * Things to look for if this method is not successful:
+ *
+ * 1. Make sure you have initialized the stream/serial used for the MP3 module BEFORE
+ *    calling begin()
+ * 2. Double check your wiring and make sure the TX pin configured for your
+ *    serial is connected to the RX pin on you MP3 module
+ * 3. Make sure your MP3 module is receiving proper current and voltage. It is not
+ *    atypical for MP3 modules to spike around 1.2 amps.
+ *
+ *
+ * @param stream
+ * @param waitUntilInitialized
+ * @param timeout
+ * @return
+ */
 uint8_t MP3::begin(Stream *stream, bool waitUntilInitialized, uint32_t timeout) {
     this->stream = stream;
     this->timeout = timeout;
@@ -78,6 +96,13 @@ void MP3::loop() {
             this->received.bytes[0] = NOOP;
             this->offset = 0;
         }
+    }
+
+    if (!this->ready && millis() - this->lastSend > this->timeout) {
+#ifdef MP3_DEBUG
+        SerialOut.println("MP3 TIMEOUT");
+#endif
+        this->ready = true;
     }
 
     //- Process the next message in the outbound queue if any are available

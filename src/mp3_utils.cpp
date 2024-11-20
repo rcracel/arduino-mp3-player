@@ -73,9 +73,12 @@ void printCommand(const Payload &command) {
                     SerialOut.print("UNKNOWN");
             }
             SerialOut.print(")");
-            break;
+        break;
         case RESPONSE_ACK:
             SerialOut.println(" (ACKNOWLEDGE)");
+        break;
+        case RESPONSE_PLAYBACK_DONE:
+            SerialOut.println(" (PLAYBACK DONE)");
         break;
         case RESPONSE_ERROR:
             SerialOut.print("(ERROR ");
@@ -85,7 +88,7 @@ void printCommand(const Payload &command) {
             SerialOut.println(")");
         default:
             SerialOut.print("(UNKNOWN)");
-            break;
+        break;
     }
     SerialOut.println();
 }

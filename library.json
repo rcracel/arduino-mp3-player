@@ -1,6 +1,6 @@
 {
   "name": "MP3Player",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "An arduino compatible library to interact with the DFPlayer MP3 module",
   "keywords": "MP3, SFX, Music",
   "repository":
